@@ -1,44 +1,24 @@
 import * as React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native'
+import {Game} from "../components/Game";
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import {CatchComponent} from "../components/CatchComponent";
-import {Addplayer} from "../components/Addplayer";
-import {players} from "../assets/data/players.json"
 
-export default function TabOneScreen() {
+export default function TabOneScreen(){
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.container}>
-        <Addplayer players={players} />
-      </View>
-    </View>
-  );
+    var gameList =["Fuck the queen","Dealer","Ben Laden","Jeu de carte simple"]
+
+    const navigation = useNavigation()
+
+    function click(){
+        console.log("nav")
+        navigation.navigate('HomeScreen',{})
+    }
+
+    return(
+    <View style={{backgroundColor :"#0F3052", flex :1 ,alignItems:"center"}}>
+        <FlatList  numColumns={2} data={gameList} renderItem={({item}) =>
+                <Game name={item}/>
+        }/>
+    </View>)
 }
-
-const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor : "#0F3052",
-  },
-  container2:{
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor : "#414141"
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

@@ -75,9 +75,7 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 10,
         borderRadius: 10,
-        backgroundColor: "#e4dbe8",
-        borderBottomColor: "lightgray",
-        borderBottomWidth: 3,
+        backgroundColor: "#fff59d",
         height : 50,
     },
     players : {

@@ -9,6 +9,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
 import TabOneScreen from "./screens/TabOneScreen";
 import PlayScreen from "./screens/PlayScreen";
+import HomeScreen from "./screens/HomeScreen";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -29,6 +30,8 @@ export default function App() {
                 name="Fuck the Queen !"
                 component={PlayScreen}
             />
+            <Stack.Screen name={"HomeScreen"}
+                          component={HomeScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
     );
