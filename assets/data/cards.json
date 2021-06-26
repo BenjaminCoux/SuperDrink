@@ -1,0 +1,20 @@
+{ "total": 3,
+  "cards": [
+    { "number": "A",
+      "color": "Clubs",
+      "rule": "le cul sec des familles",
+      "taken": false
+  },
+    {
+      "number": "2",
+      "color": "Hearts",
+      "rule": "les deux gorgées des familles",
+      "taken": false
+
+  },{
+      "number": "K",
+      "color": "Spades",
+      "rule": "verre du millieux",
+      "take": false
+    }]
+}
