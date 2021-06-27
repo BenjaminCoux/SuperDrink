@@ -24,6 +24,7 @@ export const Addplayer = (props:undefined) => {
     const [rafraichir,setrafraishir] = React.useState(0)
     const  src = require('../assets/images/kisspng-plus-and-minus-signs-computer-icons-clip-art-plus-sign-5aaad863509ba7.5297822915211459553302.png')
     const navigation = useNavigation()
+    let deletePath = require("../assets/images/delete.png")
     console.log(players);
     let supprime = (name:string) =>{
         let position = find(players,name)
@@ -53,7 +54,10 @@ export const Addplayer = (props:undefined) => {
             <View style={{flexDirection : "column", display:"flex", flex:1,}}>
                 <FlatList scrollEnabled={true}   extraData={rafraichir} showsHorizontalScrollIndicator={true} data={players} renderItem={({item}) =>
                     <TouchableOpacity style={ styles.players} >
-                        <Text style={{color:"#fff59d"}}>{item.name}</Text> <TouchableOpacity onPress={() => supprime(item.name)}><Text style={{color:"#fff59d"}}>X</Text></TouchableOpacity>
+                        <Text style={{color:"#fff59d"}}>{item.name}</Text>
+                        <TouchableOpacity style={{justifyContent:"center",borderColor:"#fff59d",borderWidth:1,borderRadius:5}} onPress={() => supprime(item.name)}>
+                            <Image source={deletePath} style={{height:16,width:16,}}/>
+                        </TouchableOpacity>
                     </TouchableOpacity>
                 }/>
             </View>
