@@ -49,11 +49,11 @@ export const Addplayer = (props:undefined) => {
 
 
     return(
-        <View style={{display:"flex"}}>
+        <View style={{display:"flex",justifyContent:"flex-start"}}>
             <View style={{flexDirection : "column", display:"flex", flex:1,}}>
                 <FlatList scrollEnabled={true}   extraData={rafraichir} showsHorizontalScrollIndicator={true} data={players} renderItem={({item}) =>
-                    <TouchableOpacity style={ styles.players} onPress={() => supprime(item.name)}>
-                        <Text style={{color:"#fff59d"}}>{item.name}</Text>
+                    <TouchableOpacity style={ styles.players} >
+                        <Text style={{color:"#fff59d"}}>{item.name}</Text> <TouchableOpacity onPress={() => supprime(item.name)}><Text style={{color:"#fff59d"}}>X</Text></TouchableOpacity>
                     </TouchableOpacity>
                 }/>
             </View>
@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
         borderColor :"#fff59d",
         borderRadius: 10,
         borderWidth : 2,
+        flexDirection:"row",
+        justifyContent : "space-between",
+        flex:1,
     },
     title: {
         fontSize: 24,
