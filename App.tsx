@@ -25,13 +25,17 @@ export default function App() {
             <Stack.Screen
                 name="Menu"
                 component={TabOneScreen}
+                options={{headerShown:false}}
             />
             <Stack.Screen
                 name="Fuck the Queen !"
                 component={PlayScreen}
+                options={{headerShown:false}}
+                
             />
             <Stack.Screen name={"HomeScreen"}
-                          component={HomeScreen}/>
+                          component={HomeScreen}
+                          options={{headerShown:false}}/>
           </Stack.Navigator>
         </NavigationContainer>
     );

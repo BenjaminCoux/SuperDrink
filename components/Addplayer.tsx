@@ -9,7 +9,6 @@ function find(players:any,name:string){
     let res = []
     for(let i=0;i<players.length;i++){
         if(name!=players[i].name && players[i]!=undefined){
-            //return i
             res.push({name:players[i].name})
         }
     }
@@ -19,21 +18,18 @@ function find(players:any,name:string){
 
 
 export const Addplayer = (props:undefined) => {
-    const [text, onChangeText] = React.useState("Add new player");
+    const [text, onChangeText] = React.useState("");
     const [players,setplayers] = React.useState<[] | []>([]);
     const [rafraichir,setrafraishir] = React.useState(0)
-    const  src = require('../assets/images/kisspng-plus-and-minus-signs-computer-icons-clip-art-plus-sign-5aaad863509ba7.5297822915211459553302.png')
+    const  src = require('../assets/images/add.png')
     const navigation = useNavigation()
     let deletePath = require("../assets/images/delete.png")
-    console.log(players);
+    
     let supprime = (name:string) =>{
-        let position = find(players,name)
-        setplayers(position)
-        console.log(players)
+        setplayers(players.filter(player => player.name !== name))
     }
 
     let handlePress = (text:string) => {
-        console.log(text)
         var tmp = players
         setrafraishir(rafraichir+1)
         onChangeText("")
@@ -48,9 +44,8 @@ export const Addplayer = (props:undefined) => {
     }
 
 
-
     return(
-        <View style={{display:"flex",justifyContent:"flex-start"}}>
+        <View style={{display:"flex",justifyContent:"flex-start",marginTop:"10%",}}>
             <View style={{flexDirection : "column", display:"flex", flex:1,}}>
                 <FlatList scrollEnabled={true}   extraData={rafraichir} showsHorizontalScrollIndicator={true} data={players} renderItem={({item}) =>
                     <TouchableOpacity style={ styles.players} >
@@ -62,13 +57,13 @@ export const Addplayer = (props:undefined) => {
                 }/>
             </View>
             <View style={{flexDirection:"row"}}>
-            <TextInput style={styles.container} onChangeText={onChangeText} value={text}/>
+            <TextInput style={styles.container} onChangeText={onChangeText} placeholder={"Ajouter un joueur"} value={text}/>
             <TouchableOpacity onPress={() => handlePress(text)}>
                 <Image source={src} style={styles.image}/>
             </TouchableOpacity>
             </View>
             <TouchableOpacity onPress={click} style={styles.container} >
-                <Text>Commencer à jouer ! </Text>
+                <Text style={{display:"flex",justifyContent:"center",}} >Commencer à jouer ! </Text>
             </TouchableOpacity>
         </View>
 )}

@@ -124,8 +124,7 @@ export const CatchComponent  = (props:undefined) => {
     cardStak[numeroCarte].taken=true
     let tmpc = cardStak[numeroCarte].color
     let tmpn = cardStak[numeroCarte].number
-   // const [path,setPath] = React.useState(images.{tmpc})
-   // console.log(path)
+
     const [taken,settaken] = React.useState(0)
     const init = getRandomInt(cardStak.length)
     const [curCard,setCurcard] = React.useState(getcard(init,cardStak))
@@ -149,9 +148,9 @@ export const CatchComponent  = (props:undefined) => {
             }
             setNumero(tmp)
             setCurcard(getcard(tmp,cardStak))
-            //setPath(require())
+
             if(allTaken(cardStak)){
-               // console.log(cardStak)
+
                 setStack(new Cards().cards)
                 for(let i = 0;i<cardStak.length;i++){
                     cardStak[i].taken=false
@@ -165,7 +164,7 @@ export const CatchComponent  = (props:undefined) => {
 
 
     return (
-        <View style={{display:"flex",alignItems:"center",backgroundColor : "#0F3052",height : "100%",}}>
+        <View style={{display:"flex",alignItems:"center",backgroundColor : "#0F3052",height : "100%",marginTop:"25%"}}>
             <TouchableOpacity style={styles.container}>
                 <Text>{cardStak.length-taken} cartes restantes</Text>
                 <Image
@@ -173,7 +172,7 @@ export const CatchComponent  = (props:undefined) => {
                     source={images[numeroCarte]}
                 />
             </TouchableOpacity>
-            <View style={{flexDirection:"row"}}><Text style={styles.title}>{players[cp].name} </Text><Text style={styles.texte} numberOfLines={2} adjustsFontSizeToFit={true}>{cardStak[numeroCarte].rule}</Text></View>
+            <View style={{flexDirection:"row"}}><Text style={styles.title}>{players[cp].name}</Text><Text style={styles.texte} numberOfLines={2} adjustsFontSizeToFit={true}>{cardStak[numeroCarte].rule}</Text></View>
             <TouchableOpacity style={styles.container2} onPress={() => tourSuivant(cp,nbp)}>
                 <Text style={{fontSize : 18,color : "black"}}>Prochaine Carte </Text>
             </TouchableOpacity>
